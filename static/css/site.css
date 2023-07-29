@@ -10,23 +10,90 @@ html, body {
     color: white;
 }
 
+main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    height: 100vh;
+}
+
+#intro {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1002;
+    background-color: black;
+}
+
+#side-title {
+    font-size: 1.35em;
+    margin: 0;
+    padding: 0;
+    border-bottom: solid thin white;
+}
+
+label {
+  font-size: 1em; 
+  padding-right: 0.5em;
+}
+
 body {
     display: flex;
     height: 100vh;
 }
 
-#map {
+#map-container {
     height: 100vh;
-    width: 65%;
+    width: 70%;
     background-color: rgb(34, 34, 34);
+    overflow: hidden;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+.custom-tile {
+    shape-rendering: "crispEdges";
 }
 
 #sidebar {
-    height: 100vh;
-    width: 35%;
+    max-height: 100vh;
+    width: 30%;
     background-color: rgb(34, 34, 34);
     border-left: solid thin rgb(190, 190, 190);
     padding: 1em;
+    overflow-y: scroll;
+}
+
+select {
+    font-family: "Poppins Regular";
+    color: white;
+    background-color: rgb(34, 34, 34);
+    padding: 0.015em;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+input:hover {
+    cursor: pointer;
+}
+
+input {
+    accent-color: gray;
+}
+
+.hoverable {
+    pointer-events: auto;
+}
+
+.option-div {
+    margin-bottom: 0.75em;
 }
 
 .gridlines line, .axis path, .tick line {
@@ -39,4 +106,95 @@ body {
 
 #time-series-chart {
     padding: 1em;
+    padding-top: 1.5em;
+}
+
+#logo {
+    height: 1.25em;
+    position: absolute;
+    bottom: 2%;
+    left: 1%;
+    z-index: 1001;
+}
+
+#logo img {
+    max-height: 1.25em;
+}
+
+#menu {
+    display: none;
+    background: none;
+    border: none;
+    position: absolute;
+    z-index: 1000;
+    top: 2%;
+    right: 2%;
+    cursor: pointer;
+    padding: 0;
+}
+
+#menu img {
+    max-width: 5em;
+}
+
+#close-settings {
+    display: none;
+    background: none;
+    border: none;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    cursor: pointer;
+    padding: 0;
+}
+
+#close-settings img {
+    max-width: 2.5em;
+}
+
+#modal {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    background-color:rgba(0, 0, 0, 0.649)
+}
+
+@media (min-width: 1335px) {
+    #sidebar {
+        display: block;
+    }
+}
+
+@media (max-width: 1335px) {
+    #map-container {
+        width: 100%;
+    }
+
+    #menu {
+        display: block;
+    }
+
+    #sidebar {
+        /* display: none; */
+        position: absolute;
+        /* text-align: center; */
+        z-index: 1001;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        height: 100vh;
+        border: none;
+    }
+
+    #side-title {
+        padding-top: 0.5em;
+    }
+
+    #close-settings {
+        display: block;
+    }
 }
